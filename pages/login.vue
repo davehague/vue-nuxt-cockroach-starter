@@ -15,6 +15,7 @@
 
 <script setup lang="ts">
 import { useAuthStore } from "~/stores/auth";
+import type { User } from "~/types";
 
 const authStore = useAuthStore();
 const router = useRouter();
@@ -27,11 +28,8 @@ async function onSuccess(response: any) {
     authStore.setAccessToken(credential);
     
     // Get user data using the token
-    const userData = await $fetch("/api/user/me", {
-      headers: {
-        Authorization: `Bearer ${credential}`,
-      },
-    });
+    const api = useApi();
+    const userData = await api.get<User>("/api/user/me");
     
     // Set user data in auth store
     authStore.setUser(userData);

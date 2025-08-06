@@ -2,21 +2,11 @@
 import { H3Event, createError, getHeader } from "h3";
 import { OAuth2Client } from "google-auth-library";
 import { executeQuery } from "./db";
+import type { User, GoogleUser } from "~/types";
 
 const client = new OAuth2Client(process.env.NUXT_PUBLIC_GOOGLE_CLIENT_ID);
 
-export interface AuthenticatedUser {
-  id: string;
-  email: string;
-  name: string;
-  picture?: string;
-}
-
-export interface GoogleUser {
-  email: string;
-  name: string;
-  picture?: string;
-}
+export type AuthenticatedUser = User;
 
 export async function verifyAuth(event: H3Event): Promise<AuthenticatedUser> {
   const authHeader = getHeader(event, "Authorization");
