@@ -1,11 +1,16 @@
 # Vue Nuxt CockroachDB Starter
 
-A starter template for building web applications with:
-- Vue 3
-- Nuxt 3
-- CockroachDB
-- Google OAuth Authentication
-- Tailwind CSS
+A modern full-stack starter template for building scalable web applications with authentication and a distributed SQL database.
+
+## 🚀 Quick Start
+
+This template provides a production-ready foundation with:
+- **Frontend**: Vue 3 + Nuxt 3 (SSR-ready)
+- **Authentication**: Google OAuth with session management
+- **Database**: CockroachDB (distributed SQL, PostgreSQL-compatible)
+- **Styling**: Tailwind CSS for rapid UI development
+- **Type Safety**: Full TypeScript support
+- **Developer Experience**: Hot reload, auto-imports, and file-based routing
 
 ## Setup
 
@@ -70,28 +75,63 @@ This creates a new migration file in the `migrations/sql` directory.
 
 ## Project Structure
 
-- `assets/` - Static assets and CSS
-- `components/` - Vue components
-- `layouts/` - Page layouts
-- `middleware/` - Route middleware
-- `migrations/` - Database migrations
-- `pages/` - Application pages and routes
-- `public/` - Public static files
-- `server/` - Server-side code
-  - `api/` - API endpoints
-  - `utils/` - Server utilities
-- `stores/` - Pinia stores
-- `types/` - TypeScript type definitions
-- `utils/` - Utility functions
+```
+├── pages/          # File-based routing
+├── server/         # Backend API and utilities
+│   └── api/        # API endpoints (public/ and protected)
+├── components/     # Reusable Vue components
+├── stores/         # Pinia state management
+├── types/          # Shared TypeScript types
+├── migrations/     # Database schema versioning
+└── middleware/     # Route guards and auth
 
 ## Features
 
-- **Authentication**: Google OAuth integration
-- **Database**: CockroachDB with migration system
-- **State Management**: Pinia with persistence
-- **Styling**: Tailwind CSS with custom components
-- **TypeScript**: Full TypeScript support
-- **Routing**: Nuxt's file-based routing system
+- **Authentication**: Google OAuth with automatic token verification
+- **Database**: CockroachDB with custom migration system
+- **State Management**: Pinia with persistence across sessions
+- **Styling**: Tailwind CSS with Lucide icons
+- **Type Safety**: Shared TypeScript types across client and server
+- **API**: RESTful endpoints with built-in auth protection
+
+## 🤔 Why This Stack?
+
+- **CockroachDB**: Distributed SQL that scales horizontally while staying PostgreSQL-compatible
+- **Nuxt 3**: Modern Vue framework with SSR, auto-imports, and excellent developer experience
+- **Google OAuth**: Secure, widely-adopted authentication that users trust
+- **TypeScript**: Catch errors at build time and improve developer productivity
+- **File-based routing**: Intuitive project organization that scales with your application
+
+## 🚀 Deployment
+
+This template is designed to deploy easily to modern platforms:
+
+- **Vercel**: Zero-config deployment with automatic HTTPS
+
+For production, ensure you:
+1. Set environment variables in your hosting platform
+2. Run migrations against your production database
+3. Configure your OAuth redirect URLs for your domain
+
+## 📚 Documentation
+
+For development guidance, see the project's CLAUDE.md files:
+- Development patterns and best practices
+- API endpoint creation and database operations
+- Migration system details
+
+## 🛠️ Troubleshooting
+
+**HTTPS Certificate Issues**: If `mkcert localhost` fails, install mkcert first:
+```bash
+# macOS
+brew install mkcert
+# Other platforms: see https://github.com/FiloSottile/mkcert#installation
+```
+
+**Database Connection**: Ensure your CockroachDB cluster is active and the connection string includes the correct database name.
+
+**OAuth Errors**: Verify your Google OAuth client ID and that localhost:3000 is in your authorized origins.
 
 ## Google OAuth Setup
 
